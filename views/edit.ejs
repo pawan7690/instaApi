@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <h1>edit your caption</h1>
+    <form method="post" action="/datas/<%=data.id %>?_method=PATCH">
+        <textarea name="caption"><%= data.caption %> </textarea><br><br>
+        <button>submit</button>
+    </form>
+</body>
+</html>

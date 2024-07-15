@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insta document</title>
+    <link rel="stylesheet" href=".//style.css">
+
+<style>
+       #user_id{
+    color: white;
+    background-color: black;
+}
+.main_div{
+    border: 5px groove gray;
+    margin-top: 40px;
+}
+
+.main_div p{
+    font-size: 20px;
+}
+
+#user_id{
+    color: rgb(190, 75, 75);
+    background-color: #333;
+}
+
+.img img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+}
+
+.add_account{
+    background-color: #333;
+    color: rgb(190, 75, 75);
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 100px;
+}
+
+    </style>
+</head>
+<body>
+    
+        <% for(let data of datas) { %>
+            <div class="main_div">
+            <h2 id="user_id" name="id"><%= data.id %> </h2>
+            <div class="img"><img src="<%= data.image %>" alt="image"></div>    
+            <p><%= data.caption %></p>
+    </div>
+    <a href="http://localhost:2000/datas/<%= data.id %>"> Show Details </a>
+    <br>
+    <a href="http://localhost:2000/datas/<%= data.id %>/edit"> Edit </a>
+
+    <form  method="post"  action="/datas/<%=data.id %>?_method=DELETE">
+        <button>Delete Post</button>
+    </form>
+        <% } %> 
+        <br><br><br><br>
+        <a href="/datas/add" class="add_account">Add your account</a>
+        <br><br><br><br>
+
+</body>
+</html>
